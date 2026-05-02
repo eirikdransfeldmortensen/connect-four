@@ -15,6 +15,8 @@ while True:
         if board.check_win(current_player):
             board.print_board()
             print(f"Player {current_player} wins!")
+            check_positions = board.available_positions()
+            print(check_positions)
             break
         current_player = 2 if current_player == 1 else 1
     else:

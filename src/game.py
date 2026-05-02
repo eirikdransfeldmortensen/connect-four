@@ -6,7 +6,7 @@ class Board:
     def __init__(self):
         self.num_rows = 6
         self.num_cols = 7
-        self.grid = [[0 for _ in range(self.num_cols)] for _ in range(self.num_rows)]
+        self.grid = [[0 for _ in range(self.num_cols,)] for _ in range(self.num_rows)]
 
     def print_board(self):
         for row in self.grid:
@@ -51,3 +51,13 @@ class Board:
                     self.grid[row-3][col+3] == current_player):
                     return True
         return False
+    
+    def available_positions(self):
+        return [(row, col) for row in range(self.num_rows)
+                for col in range(self.num_cols)
+                if self.grid[row][col] == 0]
+    
+board = Board()
+board.print_board()
+moves = board.available_positions()
+print(moves)
